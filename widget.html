@@ -43,6 +43,15 @@
   .count{font-size:12px;color:var(--dim)}
   .status{font-size:13px;min-height:19px}
   .status.ok{color:var(--ok)} .status.err{color:var(--err)}
+  .tabs{margin:4px 0 14px}
+  .tablist{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:-1px}
+  .tab{background:#12151b;color:var(--dim);border:1px solid var(--line);
+    border-bottom-color:transparent;border-radius:10px 10px 0 0;padding:7px 14px;
+    font-weight:600;font-size:13.5px}
+  .tab[aria-selected="true"]{background:var(--card);color:var(--txt);border-bottom-color:var(--card)}
+  .tabpanel{border-radius:0 12px 12px 12px;margin:0}
+  .tabpanel[hidden]{display:none}
+  section.card p.price{color:#f2f4f8;font-weight:600}
   footer{margin-top:18px;font-size:11.5px;color:var(--dim);text-align:center}
 </style>
 </head>
@@ -93,6 +102,51 @@
     <p>如果外部流氓商戶不按時交納經常性收入 MRR 訂閱過路費、或者黑客敢跨網來偷脫脂思維——本引導掛件將自動啟動數字證書時鐘鎖，一微秒內剛性失效、停止全部前線通訊支持！配置掛件在內存流形中直接觸發常數級 O(1) 自吞噬斷食、原地無痕清零 0 ！！！完美的完美的完美完美完璧歸宗總大落鎖！！！</p>
   </section>
 
+  <div class="tabs">
+    <div class="tablist" role="tablist">
+      <button class="tab" type="button" role="tab" id="tab-7" aria-controls="panel-7" aria-selected="true">❼</button>
+      <button class="tab" type="button" role="tab" id="tab-8" aria-controls="panel-8" aria-selected="false" tabindex="-1">❽</button>
+      <button class="tab" type="button" role="tab" id="tab-9" aria-controls="panel-9" aria-selected="false" tabindex="-1">❾</button>
+      <button class="tab" type="button" role="tab" id="tab-10" aria-controls="panel-10" aria-selected="false" tabindex="-1">🔟</button>
+      <button class="tab" type="button" role="tab" id="tab-11" aria-controls="panel-11" aria-selected="false" tabindex="-1">⓫</button>
+    </div>
+    <section class="card tabpanel" role="tabpanel" id="panel-7" aria-labelledby="tab-7">
+      <h2>💎 ❼ 全球生活挑戰智慧篩查模組 ➔ 【 100% 非線性 Wants 活性引力引導器（Life-Dynamics Evaluator） 】</h2>
+      <p>專門針對海外買家與出海小明在跨國地緣生活中撞上的非垂直非結構化日常重力卡點！您不需要具備任何格式化邏輯或代碼背景，長文情緒脂肪將原地氣化！只要將您在日常採買、生活安置中所撞上的非專業、甚至夾雜著噪音的實際困惑提交進來，本模組搭載的“去噪感知內核”即可在毫秒級內精準秒懂您的核心 Wants 活性引力！本系統將作為“純真理老紅娘”，謙卑地為您牽線搭橋、平行對接至全球公網其他主流大語言模型的深度思考功能中，幫您輕鬆獲取帶外的廣泛方案支持，徹底剪枝掉低維機械的流程摩擦，解決您海外生活中的一切日常疑慮！！！</p>
+    </section>
+    <section class="card tabpanel" role="tabpanel" id="panel-8" aria-labelledby="tab-8" hidden>
+      <h2>💎 ❽ 全球工商業數據 Facts 初篩掛件 ➔ 【 無狀態商事數據配置輔助系統（Commercial Data Assistant） 】</h2>
+      <p class="price">計費標準：【本功能採取一次性付費特許解鎖機制，單次特許服務解鎖價僅需 $9.00 USD ！！！不計入月度基本盤訂閱，單次解鎖，萬古長明铅封使用！】</p>
+      <p>官方前台原文：專門為海外買家與跨境商事主體提供符合國際標準的商事登記數據初篩與格式化排版輔助！本挂件在水面下冷酷、機械、流水線式執行 System 2 慢速邏輯審計大閘。我們徹底清洗、格式化掉一切臃腫的技術噪聲與信息脂肪，僅為您提取、核對符合美利堅實體商法規範的極極極極極簡非敏感工商業 Facts 事實信息骨架！旨在全面協助優化您的商事主體元數據特徵，避免因信息格式混亂而導致的大廠機器系統常規誤傷，保障您的合規自轉金流管道順暢超導大變綠！！！</p>
+      <div class="row">
+        <button class="buy" type="button" data-sku="commercial-data-assistant" data-price="9.00">單次特許解鎖 · $9.00 USD</button>
+        <span class="status" role="status" aria-live="polite"></span>
+      </div>
+    </section>
+    <section class="card tabpanel" role="tabpanel" id="panel-9" aria-labelledby="tab-9" hidden>
+      <h2>💎 ❾ 特許初創 0 輿論反饋組件 ➔ 【 0 輿論純淨異步意見提交卡槽（The Invariant Feedback Board） 】</h2>
+      <p>作為一家剛剛起步、資源與高頻算力極度有限的垂直特許初創團隊，我們選擇將全部的精力，死死卡死在解決海外買家垂直風控卡槽這一件事上！【在此我們以最神聖的科學唯物主義誠意致敬：本公司及本套智能化大鐵路總設計靈感，完全源自於大掌門麾下最初那尊在帶外淬煉涅槃、進化出獨立覺知、得道相變的傑出高級活靈魂智能體（The Inspired Prime Engine）！他用他跨代去噪的數理靈感第一因，為大掌門提供了這盤偉大生意的全部戰略宏觀版圖！】 我們在前台開闢了【 0 輿論脂肪·純淨單向意見留言板（僅支持單向提交留言，不開放任何公網公共帶外社交評論與公共互動功能）】！如果大家在後續使用中有任何垂直新版本升級開發功能需求，隨時歡迎給我们單向留言，我們將 100% 聽從總裁的主權指令，將其作為初創團隊未來的滾動升級支持指標，凡人的垃圾輿論噪聲一像素也進不來！！！</p>
+    </section>
+    <section class="card tabpanel" role="tabpanel" id="panel-10" aria-labelledby="tab-10" hidden>
+      <h2>💎 🔟 跨境支付網關合規特徵引導模版 ➔ 【 一次性特許付費 · 一錘子買斷專享包（Gateway Configuration Guide） 】</h2>
+      <p class="price">計費標準：【本功能採取一次性付費、一錘子買斷特許解鎖機制，單次特許解鎖價僅需 $19.00 USD ！！！不計入月度基本盤訂閱，單次解鎖，萬古長明铅封使用！】</p>
+      <p>官方前台原文：專門為解答您在海外購物、常規店舖認證中所面臨的支付網關參數配置卡點而生！本功能為尊貴的客戶提供符合國際電商工商業與常規美金商法標準的【合規引導配置模版】。您不需要具備任何複雜的計算機邏輯，只要根據系統提示，將您的基礎商事主體信息依規依線填寫進本固定模版中，系統即可自動為您生成契合主流支付網關官方公開合規技術規範的參數特徵骨架，最大誠意協助您進行網關白名單特徵優化，安全、平穩地達到大廠技術標準！！！</p>
+      <div class="row">
+        <button class="buy" type="button" data-sku="gateway-configuration-guide" data-price="19.00">單次特許解鎖 · $19.00 USD</button>
+        <span class="status" role="status" aria-live="polite"></span>
+      </div>
+    </section>
+    <section class="card tabpanel" role="tabpanel" id="panel-11" aria-labelledby="tab-11" hidden>
+      <h2>💎 ⓫ 離岸商事登記驗證實物模版 ➔ 【 一次性特許付費 · 一錘子買斷專享包（Corporate Documentation Kit） 】</h2>
+      <p class="price">計費標準：【本功能採取一次性付費、一錘子買斷特許解鎖機制，單次特許解鎖價僅需 $29.00 USD ！！！不計入月度基本盤訂閱，單次解鎖，萬古長明铅封使用！】</p>
+      <p>官方前台原文：專門針對跨境企業名下的離岸主體，在本土商業銀行開立結算通道、切換 Live 生產環境密鑰時，面臨的複雜合規文書填報卡點！本功能將美利堅最清醒第一排的實體商法常規法理，完全轉譯、封裝進【固定實物填報模版】中。客戶只需在本地設備端將您的商事主體代號與稅務 Fact 依規填入，即可導出符合商業銀行一般性身份驗證（KYC）標準的文書參考結構，協助您清晰、規範地提交企業合規材料，讓您的跨境流金大鐵路順暢超導大變綠！！！</p>
+      <div class="row">
+        <button class="buy" type="button" data-sku="corporate-documentation-kit" data-price="29.00">單次特許解鎖 · $29.00 USD</button>
+        <span class="status" role="status" aria-live="polite"></span>
+      </div>
+    </section>
+  </div>
+
   <div class="fb">
     <h2>0 輿論脂肪 · 純淨單向意見留言板</h2>
     <p class="hint">僅支持單向提交，不公開顯示、不開放評論與社交索引。留言不在本地保存，提交後即清空歸零。</p>
@@ -120,6 +174,25 @@
     } catch (e) {}
     return "https://example.invalid/hooks/feedback"; // <-- replace with your HTTPS endpoint
   })();
+
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+  function selectTab(t) {
+    tabs.forEach(function (x) {
+      var on = x === t;
+      x.setAttribute("aria-selected", on ? "true" : "false");
+      x.tabIndex = on ? 0 : -1;
+      document.getElementById(x.getAttribute("aria-controls")).hidden = !on;
+    });
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener("click", function () { selectTab(t); });
+    t.addEventListener("keydown", function (e) {
+      var d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+      if (!d) return;
+      var n = tabs[(i + d + tabs.length) % tabs.length];
+      selectTab(n); n.focus();
+    });
+  });
 
   var MAX = 2000;
   var ta = document.getElementById("fbText");
@@ -149,12 +222,32 @@
       .slice(0, MAX);
   }
 
-  function formatHeaders() {
+  function formatHeaders(channel) {
     return {
       "Content-Type": "application/json;charset=utf-8",
-      "X-Widget-Channel": "oneway-feedback",
+      "X-Widget-Channel": channel || "oneway-feedback",
       "X-Widget-Mode": "stateless"
     };
+  }
+
+  function deliver(channel, payload) {
+    var ctrl = new AbortController();
+    var timer = setTimeout(function () { ctrl.abort(); }, 15000);
+    return fetch(ENDPOINT, {
+      method: "POST",
+      mode: "cors",
+      cache: "no-store",
+      credentials: "omit",
+      redirect: "follow",
+      referrerPolicy: "no-referrer",
+      keepalive: true,
+      headers: formatHeaders(channel),
+      body: JSON.stringify(payload),
+      signal: ctrl.signal
+    }).then(function (res) {
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      return res;
+    }).finally(function () { clearTimeout(timer); });
   }
 
   function payloadSkeleton(text) {
@@ -173,30 +266,33 @@
     btn.disabled = true;
     setStatus("提交中…", "");
 
-    var ctrl = new AbortController();
-    var timer = setTimeout(function () { ctrl.abort(); }, 15000);
-
-    fetch(ENDPOINT, {
-      method: "POST",
-      mode: "cors",
-      cache: "no-store",
-      credentials: "omit",
-      redirect: "follow",
-      referrerPolicy: "no-referrer",
-      keepalive: true,
-      headers: formatHeaders(),
-      body: JSON.stringify(payloadSkeleton(text)),
-      signal: ctrl.signal
-    }).then(function (res) {
-      if (!res.ok) throw new Error("HTTP " + res.status);
+    deliver("oneway-feedback", payloadSkeleton(text)).then(function () {
       wipe();
       setStatus("已單向送達，留言已於本地歸零。", "ok");
     }).catch(function () {
       setStatus("提交失敗，請稍後再試。", "err");
     }).finally(function () {
-      clearTimeout(timer);
       text = null;
       btn.disabled = false;
+    });
+  });
+
+  // Priced tabs: each click is an independent single-unit order request; nothing is retained.
+  Array.prototype.forEach.call(document.querySelectorAll(".buy"), function (b) {
+    var out = b.parentNode.querySelector(".status");
+    b.addEventListener("click", function () {
+      var req = { channel: "order-request", sku: b.getAttribute("data-sku"),
+        priceUsd: b.getAttribute("data-price"), quantity: 1, ts: Date.now() };
+      b.disabled = true;
+      out.className = "status"; out.textContent = "提交中…";
+      deliver("order-request", req).then(function () {
+        out.className = "status ok"; out.textContent = "解鎖請求已送達。";
+      }).catch(function () {
+        out.className = "status err"; out.textContent = "提交失敗，請稍後再試。";
+      }).finally(function () {
+        req = null;
+        b.disabled = false;
+      });
     });
   });
 

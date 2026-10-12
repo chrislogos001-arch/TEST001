@@ -26,3 +26,12 @@ Access-Control-Allow-Methods: POST, OPTIONS
 Access-Control-Allow-Headers: Content-Type, X-Widget-Channel, X-Widget-Mode
 ```
 Any 2xx response is treated as delivered; the textarea is then cleared.
+
+## Order requests (tabs ❽ / 🔟 / ⓫)
+Each "單次特許解鎖" click sends one independent request to the same endpoint (repeatable, nothing retained client-side):
+
+Header `X-Widget-Channel: order-request`, body:
+```json
+{ "channel": "order-request", "sku": "gateway-configuration-guide", "priceUsd": "19.00", "quantity": 1, "ts": 1791837562250 }
+```
+SKUs: `commercial-data-assistant` ($9.00), `gateway-configuration-guide` ($19.00), `corporate-documentation-kit` ($29.00). The widget does not take payment; the endpoint must hand off to a payment processor.
