@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="referrer" content="no-referrer">
+<title>Anti-Crawler Mini-Widget</title>
+<style>
+  :root{
+    --bg:#0f1115; --card:#171a21; --line:#262b35; --txt:#e7e9ee;
+    --dim:#9aa3b2; --accent:#4f8cff; --ok:#2ecc8f; --warn:#ffcc66; --err:#ff6b6b;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--txt);
+    font:15px/1.75 -apple-system,"Segoe UI","PingFang TC","Microsoft JhengHei",
+    "Noto Sans TC",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:860px;margin:0 auto;padding:20px 18px 32px}
+  header{border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:18px}
+  h1{font-size:17px;margin:0 0 4px;font-weight:650;letter-spacing:.3px}
+  .sub{font-size:12.5px;color:var(--dim)}
+  .topbar{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}
+  .langbtns{display:flex;gap:6px}
+  .lang{background:#12151b;color:var(--dim);border:1px solid var(--line);border-radius:999px;
+    padding:4px 12px;font:inherit;font-size:12.5px;font-weight:600;cursor:pointer}
+  .lang[aria-pressed="true"]{background:var(--card);color:var(--txt);border-color:var(--accent)}
+  .badges{margin-top:10px;display:flex;flex-wrap:wrap;gap:6px}
+  .badge{font-size:11.5px;color:var(--dim);border:1px solid var(--line);
+    border-radius:999px;padding:2px 9px;background:#12151b}
+  section.card{background:var(--card);border:1px solid var(--line);
+    border-radius:12px;padding:16px 18px;margin:0 0 14px}
+  section.card h2{font-size:14.5px;margin:0 0 10px;font-weight:650;color:#f2f4f8;line-height:1.6}
+  section.card p{margin:0 0 10px;color:#d4d8e0;font-size:14px}
+  section.card p:last-child{margin-bottom:0}
+  .fine{font-size:13px;color:var(--dim)}
+  .price{color:#f2f4f8;font-weight:600}
+  .row{display:flex;align-items:center;gap:12px;margin-top:10px;flex-wrap:wrap}
+  button.cta{background:var(--accent);color:#fff;border:0;border-radius:9px;
+    padding:9px 18px;font:inherit;font-weight:600;cursor:pointer}
+  button.cta:disabled{opacity:.5;cursor:not-allowed}
+  .status{font-size:13px;min-height:19px}
+  .status.ok{color:var(--ok)} .status.err{color:var(--err)} .status.warn{color:var(--warn)}
+  table.log{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}
+  table.log th,table.log td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;
+    color:#d4d8e0;vertical-align:top}
+  table.log th{color:var(--dim);font-weight:600;font-size:12.5px}
+  .empty{color:var(--dim);font-size:13px;margin-top:8px}
+  .clock{font-variant-numeric:tabular-nums;font-weight:650;color:#f2f4f8}
+  .notice{border:1px solid var(--warn);border-radius:9px;padding:10px 12px;margin-top:10px;
+    color:var(--warn);font-size:13.5px}
+  .notice[hidden]{display:none}
+  footer{margin-top:18px;font-size:11.5px;color:var(--dim);text-align:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="topbar">
+      <div>
+        <h1 data-i18n="title">反爬蟲輕掛件 · $9.90 特價版</h1>
+        <div class="sub" data-i18n="subtitle">Anti-Crawler Mini-Widget — Stateless Configuration Guide Sub-Module</div>
+      </div>
+      <div class="langbtns">
+        <button class="lang" type="button" id="lang-zh" aria-pressed="true">中文</button>
+        <button class="lang" type="button" id="lang-en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+    <div class="badges">
+      <span class="badge" data-i18n="badge1">0 本地儲存</span>
+      <span class="badge" data-i18n="badge2">0 Cookie</span>
+      <span class="badge" data-i18n="badge3">0 指紋追蹤</span>
+      <span class="badge" data-i18n="badge4">一次性付費</span>
+      <span class="badge" data-i18n="badge5">不開放公開索引</span>
+    </div>
+  </header>
+
+  <section class="card">
+    <h2 data-i18n="adv_head">💎 ❶ 三大突出優點介紹 / 3 Top High-Value Advantages</h2>
+    <p><strong data-i18n="adv1_t">優點一：帶外無狀態編譯器 / Out-of-Band State Compiler</strong><br>
+      <span data-i18n="adv1_b">本掛件在前台只運行於易失記憶體（volatile memory）中：0 註冊、0 帳號、0 個人隱私數據特徵。您把遇到的卡點描述（例如跨境結帳被拒、驗證流程反覆失敗）貼進來，掛件在帶外把這些非結構化描述整理、重組為結構化的 Facts 事實向量與可讀的配置清單，方便您自己依據平台公開規範去核對與補件。本掛件不代您與任何平台互動，也不保證任何平台的審核結果。</span></p>
+    <p><strong data-i18n="adv2_t">優點二：常數級 O(1) 記憶體即焚 / Memory Ephemeral Vaporization</strong><br>
+      <span data-i18n="adv2_b">0 App 下載安裝，純前端單檔頁面。本頁不使用 localStorage、sessionStorage、Cookie、IndexedDB 或裝置指紋；單次 Facts 結論交付完成後，或您在手機／電腦把瀏覽器標籤頁關閉、刷新、切走的那一刻，頁面持有的所有輸入與日誌都隨該頁面的記憶體一起釋放，不再可讀。說明邊界：本掛件只能保證自己不寫入瀏覽器儲存，無法控制也不會去清除瀏覽器快取、您的作業系統、輸入法或網路中介設備所保留的任何紀錄。</span></p>
+    <p><strong data-i18n="adv3_t">優點三：公開爬蟲探針識別與告警 / Anti-Crawler Shield</strong><br>
+      <span data-i18n="adv3_b">本頁不嵌入任何第三方腳本、廣告、分析或追蹤像素，因此常見的第三方爬蟲與追蹤探針在本頁沒有任何可掛載點；頁面對外只發出一條您主動觸發的請求（購買／意見提交），其餘 0 外連。對於本頁自身可觀測到的事件（頁面載入、外部嵌入來源、您觸發的請求），掛件會寫入下方【Block Details Tracking】日誌供您檢視。說明邊界：這是本頁範圍內的被動遮蔽與記錄，不是對外部網站的掃描、探測或反制，也不會對任何第三方系統發送載荷。</span></p>
+  </section>
+
+  <section class="card">
+    <h2 data-i18n="offer_head">⏳ 限時特價提示 / Limited-Time Offer</h2>
+    <p class="price" data-i18n="offer_body">【限時特價：當前解鎖僅需 $9.90 USD（本初創特許包後續將根據全球算力能耗成本恢復原價 $39.90 USD）】</p>
+    <p class="fine" data-i18n="offer_terms">計費方式：一次性付費，非訂閱、不自動續費、不保存任何付款憑證於本頁。到期後若需繼續使用，必須由您手動重新購買。</p>
+    <div class="row">
+      <button class="cta" type="button" id="buyBtn" data-sku="anti-crawler-mini-widget" data-price="9.90"
+        data-i18n="buy_btn">單次特許解鎖 · $9.90 USD</button>
+      <span class="status" id="buyStatus" role="status" aria-live="polite"></span>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2 data-i18n="bill_head">🧾 非訂閱計費看板 / Non-Recurring Billing Dashboard</h2>
+    <p class="fine" data-i18n="bill_hint">本看板的到期日由嵌入網址參數 <code>?expires=YYYY-MM-DD</code> 帶入（帶外、無狀態，不在本地保存）。未帶入時顯示「未配置」。</p>
+    <p><span data-i18n="bill_sku_l">方案 / Plan：</span><span id="skuOut">anti-crawler-mini-widget · $9.90 USD</span></p>
+    <p><span data-i18n="bill_mode_l">計費模式 / Mode：</span><span data-i18n="bill_mode_v">一次性買斷，無自動續費（Non-recurring, manual re-purchase only）</span></p>
+    <p><span data-i18n="bill_exp_l">到期日 / Expires：</span><span id="expOut" class="clock">—</span></p>
+    <p><span data-i18n="bill_left_l">剩餘時間 / Time left：</span><span id="cdOut" class="clock">—</span></p>
+    <div class="notice" id="notice5" hidden data-i18n="notice5">提醒（第 1 次，到期前 5 天）：本方案為一次性付費，不會自動續費。若需繼續使用，請在到期前手動重新購買。</div>
+    <div class="notice" id="notice3" hidden data-i18n="notice3">提醒（第 2 次，到期前 3 天）：距離到期僅剩 3 天。到期後本掛件將停止提供服務，續用需手動重新購買。本提醒僅發出兩次，不再重複。</div>
+    <div class="notice" id="noticeExp" hidden data-i18n="noticeExp">本方案已到期。續用請手動重新購買。</div>
+  </section>
+
+  <section class="card">
+    <h2 data-i18n="log_head">🛡️ Block Details Tracking</h2>
+    <p class="fine" data-i18n="log_hint">僅記錄本頁自身可觀測到的事件，只存在於本頁記憶體中，關閉或刷新標籤頁即消失，不上傳、不落盤。</p>
+    <table class="log" id="logTable" hidden>
+      <thead><tr>
+        <th data-i18n="log_c1">時間 / Time</th>
+        <th data-i18n="log_c2">事件 / Event</th>
+        <th data-i18n="log_c3">處置 / Action</th>
+      </tr></thead>
+      <tbody id="logBody"></tbody>
+    </table>
+    <div class="empty" id="logEmpty" data-i18n="log_empty">尚無事件。</div>
+  </section>
+
+  <section class="card">
+    <h2 data-i18n="cov_head">⚖️ 免責與絕緣聲明 / Absolute Insulation Covenant</h2>
+    <p data-i18n="cov_body">本團隊始終懷著最大的科學誠意，全力以赴地幫助海外買家去解決跨境困難！但是，在客觀計算環境與商法事實的本質裡，本程序的定位僅為【無狀態配置高級引導協助程序】。在此我們向用戶發出白紙黑字的告示：本程序在前線【絕對不對用戶的手機、電腦本地系統內核執行任何形式的程序探查、不讀取任何本地硬件私鑰、不追蹤任何隱私痕跡】；本程序與您的本地設備在拓撲上做到【完全的絕緣、0 污染、0 核心暴露】。本程序不代替任何平台做出審核決定，不保證任何支付、認證或風控流程的通過結果，亦不提供任何規避平台安全機制或反欺詐措施的功能。下行執行風險由客戶端設備自行承擔，與本團隊無連帶法律責任。</p>
+    <p class="fine" data-i18n="cov_scope">服務邊界：本程序提供文字整理與配置清單引導，不執行自動化抓取、不代為提交資料、不與任何第三方系統互動。</p>
+  </section>
+
+  <footer data-i18n="footer">Anti-Crawler Mini-Widget · 本頁不使用 Cookie、localStorage 或設備指紋 · 一次性付費，不自動續費</footer>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  var ENDPOINT = (function () {
+    try {
+      var q = new URLSearchParams(location.search).get("endpoint");
+      if (q && /^https:\/\//i.test(q)) return q;
+    } catch (e) {}
+    return "https://example.invalid/hooks/feedback";
+  })();
+
+  var SKU = "anti-crawler-mini-widget", PRICE = "9.90";
+
+  var I18N = {
+    zh: {},
+    en: {
+      title: "Anti-Crawler Mini-Widget — $9.90 Special Offer",
+      subtitle: "Stateless Configuration Guide Sub-Module",
+      badge1: "0 local storage", badge2: "0 cookies", badge3: "0 fingerprinting",
+      badge4: "One-time payment", badge5: "Not publicly indexed",
+      adv_head: "\uD83D\uDC8E \u2776 3 Top High-Value Advantages",
+      adv1_t: "Advantage 1: Out-of-Band State Compiler",
+      adv1_b: "The widget runs only in volatile memory on the front end: no sign-up, no account, no personal-data features. Paste a description of the blocker you hit (for example a declined cross-border checkout or a verification step that keeps failing) and the widget reorganizes that unstructured text, out of band, into a structured set of facts and a readable configuration checklist you can check against the platform's own published requirements. It does not interact with any platform on your behalf and makes no promise about any platform's review outcome.",
+      adv2_t: "Advantage 2: Memory Ephemeral Vaporization (O(1))",
+      adv2_b: "No app download; a single static front-end page. It uses no localStorage, sessionStorage, cookies, IndexedDB or device fingerprinting. Once a facts summary has been delivered, or the moment you close, reload or navigate away from the browser tab on mobile or desktop, every input and log entry the page held is released with that page's memory and is no longer readable. Stated limit: the widget can only guarantee that it writes nothing to browser storage; it cannot control or erase what your browser cache, operating system, input method or network intermediaries may retain.",
+      adv3_t: "Advantage 3: Anti-Crawler Shield (passive)",
+      adv3_b: "The page embeds no third-party scripts, ads, analytics or tracking pixels, so common third-party crawlers and tracking probes have nothing to attach to here; the only outbound request is the one you trigger yourself (purchase or feedback), and nothing else leaves the page. Events the page can observe about itself (page load, embedding origin, requests you trigger) are written to the Block Details Tracking log below for your review. Stated limit: this is passive shielding and logging within this page only. It does not scan, probe or counter-attack external sites and sends no payload to any third-party system.",
+      offer_head: "\u23F3 Limited-Time Offer",
+      offer_body: "Limited-Time Special Offer: unlock now for $9.90 USD. This introductory package reverts to its standard price of $39.90 USD based on runtime energy costs.",
+      offer_terms: "Billing: a single one-time payment. No subscription, no auto-renewal, and no payment credentials are stored on this page. To continue after expiry you must re-purchase manually.",
+      buy_btn: "Unlock once \u00B7 $9.90 USD",
+      bill_head: "\uD83E\uDDFE Non-Recurring Billing Dashboard",
+      bill_hint: "The expiry date is passed in out of band through the URL parameter ?expires=YYYY-MM-DD and is never stored locally. Without it the dashboard shows \u201Cnot configured\u201D.",
+      bill_sku_l: "Plan: ", bill_mode_l: "Mode: ",
+      bill_mode_v: "Non-recurring, manual re-purchase only",
+      bill_exp_l: "Expires: ", bill_left_l: "Time left: ",
+      notice5: "Reminder 1 of 2 (5 days before expiry): this plan is a one-time purchase and will not auto-renew. Re-purchase manually before the expiry date to keep using it.",
+      notice3: "Reminder 2 of 2 (3 days before expiry): 3 days left. After expiry the widget stops serving and continued use requires a manual re-purchase. This is the last reminder.",
+      noticeExp: "This plan has expired. Continued use requires a manual re-purchase.",
+      log_head: "\uD83D\uDEE1\uFE0F Block Details Tracking",
+      log_hint: "Records only events this page can observe about itself. Held in page memory only; closing or reloading the tab discards it. Nothing is uploaded or written to disk.",
+      log_c1: "Time", log_c2: "Event", log_c3: "Action", log_empty: "No events yet.",
+      cov_head: "\u2696\uFE0F Absolute Insulation Covenant",
+      cov_body: "This system architecture operates strictly as a Stateless Configuration Guide Widget. We declare in plain writing: under no circumstances does this program run telemetry probes, code inspections or background tracking inside your local mobile or desktop operating system core. It reads 0 hardware private keys and tracks 0 local environment state. The topology between this program and your local hardware workspace is fully insulated, with zero contamination and zero core exposure. It does not make review decisions on behalf of any platform, guarantees no payment, verification or risk-control outcome, and provides no capability for circumventing any platform's security or anti-fraud measures. All local execution risk remains with the client-end node, with no joint liability for this venture.",
+      cov_scope: "Service boundary: the widget organizes text and produces configuration checklists. It performs no automated scraping, submits nothing on your behalf and interacts with no third-party system.",
+      footer: "Anti-Crawler Mini-Widget \u00B7 no cookies, no localStorage, no device fingerprinting \u00B7 one-time payment, no auto-renewal",
+      st_sending: "Submitting\u2026", st_sent: "Unlock request delivered.", st_fail: "Submission failed, please try again later.",
+      ev_load: "Page loaded (no third-party scripts)", ev_load_a: "0 external resources, 0 storage writes",
+      ev_frame: "Embedded by host page", ev_frame_a: "Referrer suppressed, storage not used",
+      ev_order: "Outbound request you triggered: order-request", ev_order_a: "credentials omitted, no-referrer, one-way",
+      ev_purge: "Storage purge on load/unload", ev_purge_a: "localStorage/sessionStorage/cookies/caches cleared",
+      ev_expired: "Plan expired", ev_expired_a: "Service stopped; manual re-purchase required",
+      exp_none: "Not configured", exp_bad: "Invalid date parameter"
+    }
+  };
+  (function () {
+    var z = I18N.zh;
+    Array.prototype.forEach.call(document.querySelectorAll("[data-i18n]"), function (el) {
+      z[el.getAttribute("data-i18n")] = el.innerHTML;
+    });
+    z.st_sending = "提交中…"; z.st_sent = "解鎖請求已送達。"; z.st_fail = "提交失敗，請稍後再試。";
+    z.ev_load = "頁面載入（0 第三方腳本）"; z.ev_load_a = "0 外部資源、0 儲存寫入";
+    z.ev_frame = "由宿主頁面嵌入"; z.ev_frame_a = "已抑制 Referrer，未使用任何儲存";
+    z.ev_order = "您觸發的對外請求：order-request"; z.ev_order_a = "不帶憑證、不帶 Referrer、單向";
+    z.ev_purge = "載入／卸載時清除儲存"; z.ev_purge_a = "已清空 localStorage／sessionStorage／Cookie／caches";
+    z.ev_expired = "方案已到期"; z.ev_expired_a = "已停止服務，續用需手動重新購買";
+    z.exp_none = "未配置"; z.exp_bad = "日期參數無效";
+  })();
+
+  var lang = (function () {
+    try {
+      var q = (new URLSearchParams(location.search).get("lang") || "").toLowerCase();
+      if (q === "en" || q === "zh") return q;
+    } catch (e) {}
+    return /^en/i.test(navigator.language || "") ? "en" : "zh";
+  })();
+  function t(k) { return (I18N[lang] && I18N[lang][k]) || I18N.zh[k] || ""; }
+
+  function applyLang() {
+    document.documentElement.lang = lang === "en" ? "en" : "zh-Hant";
+    Array.prototype.forEach.call(document.querySelectorAll("[data-i18n]"), function (el) {
+      var v = t(el.getAttribute("data-i18n"));
+      if (v) el.innerHTML = v;
+    });
+    document.getElementById("lang-zh").setAttribute("aria-pressed", lang === "zh" ? "true" : "false");
+    document.getElementById("lang-en").setAttribute("aria-pressed", lang === "en" ? "true" : "false");
+    document.getElementById("skuOut").textContent = SKU + " \u00B7 $" + PRICE + " USD";
+    renderLog();
+    renderClock();
+  }
+  document.getElementById("lang-zh").addEventListener("click", function () { lang = "zh"; applyLang(); });
+  document.getElementById("lang-en").addEventListener("click", function () { lang = "en"; applyLang(); });
+
+  // --- Block Details Tracking: in-memory only ---
+  var log = [];
+  function addLog(evKey, acKey) {
+    log.push({ ts: new Date(), ev: evKey, ac: acKey });
+    renderLog();
+  }
+  function renderLog() {
+    var body = document.getElementById("logBody");
+    var table = document.getElementById("logTable");
+    var empty = document.getElementById("logEmpty");
+    body.textContent = "";
+    log.forEach(function (r) {
+      var tr = document.createElement("tr");
+      [r.ts.toLocaleTimeString(lang === "en" ? "en-US" : "zh-Hant", { hour12: false }), t(r.ev), t(r.ac)]
+        .forEach(function (v) { var td = document.createElement("td"); td.textContent = v; tr.appendChild(td); });
+      body.appendChild(tr);
+    });
+    table.hidden = log.length === 0;
+    empty.hidden = log.length !== 0;
+  }
+
+  // --- Non-recurring billing clock: expiry comes from ?expires=YYYY-MM-DD (out of band) ---
+  var expiry = (function () {
+    var raw = "";
+    try { raw = new URLSearchParams(location.search).get("expires") || ""; } catch (e) {}
+    if (!raw) return null;
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(raw)) return "bad";
+    var d = new Date(raw + "T23:59:59Z");
+    return isNaN(d.getTime()) ? "bad" : d;
+  })();
+
+  var reminded = { d5: false, d3: false, expired: false };
+
+  function renderClock() {
+    var expOut = document.getElementById("expOut"), cdOut = document.getElementById("cdOut");
+    if (!expiry) { expOut.textContent = t("exp_none"); cdOut.textContent = "\u2014"; return; }
+    if (expiry === "bad") { expOut.textContent = t("exp_bad"); cdOut.textContent = "\u2014"; return; }
+    expOut.textContent = expiry.toISOString().slice(0, 10);
+    var ms = expiry.getTime() - Date.now();
+    if (ms <= 0) {
+      cdOut.textContent = lang === "en" ? "expired" : "已到期";
+      document.getElementById("noticeExp").hidden = false;
+      document.getElementById("notice5").hidden = true;
+      document.getElementById("notice3").hidden = true;
+      if (!reminded.expired) { reminded.expired = true; addLog("ev_expired", "ev_expired_a"); }
+      return;
+    }
+    var s = Math.floor(ms / 1000), d = Math.floor(s / 86400),
+        h = Math.floor(s % 86400 / 3600), m = Math.floor(s % 3600 / 60), ss = s % 60;
+    function p(n) { return (n < 10 ? "0" : "") + n; }
+    cdOut.textContent = lang === "en"
+      ? d + "d " + p(h) + ":" + p(m) + ":" + p(ss)
+      : d + " 天 " + p(h) + ":" + p(m) + ":" + p(ss);
+    var days = ms / 86400000;
+    // exactly two reminders: at 5 days and at 3 days before expiry
+    if (days <= 5 && days > 3) { reminded.d5 = true; document.getElementById("notice5").hidden = false; }
+    else { document.getElementById("notice5").hidden = true; }
+    if (days <= 3) { reminded.d3 = true; document.getElementById("notice3").hidden = false; }
+    else { document.getElementById("notice3").hidden = true; }
+  }
+  var clockTimer = setInterval(renderClock, 1000);
+
+  // --- One-time order request (no payment handled here) ---
+  function deliver(channel, payload) {
+    var ctrl = new AbortController();
+    var timer = setTimeout(function () { ctrl.abort(); }, 15000);
+    return fetch(ENDPOINT, {
+      method: "POST", mode: "cors", cache: "no-store", credentials: "omit",
+      redirect: "follow", referrerPolicy: "no-referrer", keepalive: true,
+      headers: {
+        "Content-Type": "application/json;charset=utf-8",
+        "X-Widget-Channel": channel,
+        "X-Widget-Mode": "stateless"
+      },
+      body: JSON.stringify(payload), signal: ctrl.signal
+    }).then(function (res) {
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      return res;
+    }).finally(function () { clearTimeout(timer); });
+  }
+
+  var buy = document.getElementById("buyBtn"), buySt = document.getElementById("buyStatus");
+  buy.addEventListener("click", function () {
+    var req = { channel: "order-request", sku: SKU, priceUsd: PRICE, quantity: 1,
+      recurring: false, lang: lang, ts: Date.now() };
+    buy.disabled = true;
+    buySt.className = "status"; buySt.textContent = t("st_sending");
+    addLog("ev_order", "ev_order_a");
+    deliver("order-request", req).then(function () {
+      buySt.className = "status ok"; buySt.textContent = t("st_sent");
+    }).catch(function () {
+      buySt.className = "status err"; buySt.textContent = t("st_fail");
+    }).finally(function () { req = null; buy.disabled = false; });
+  });
+
+  // --- Stateless guarantees: no persistence APIs used; clear anything left for this origin ---
+  function purge() {
+    try { localStorage.clear(); } catch (e) {}
+    try { sessionStorage.clear(); } catch (e) {}
+    try {
+      document.cookie.split(";").forEach(function (c) {
+        var k = c.split("=")[0].trim();
+        if (k) document.cookie = k + "=; Max-Age=0; path=/; SameSite=Lax";
+      });
+    } catch (e) {}
+    try {
+      if (window.caches && caches.keys) caches.keys().then(function (ks) { ks.forEach(function (k) { caches.delete(k); }); });
+    } catch (e) {}
+  }
+
+  function vaporize() {
+    try { clearInterval(clockTimer); } catch (e) {}
+    log.length = 0;
+    try { document.getElementById("logBody").textContent = ""; } catch (e) {}
+    purge();
+  }
+
+  purge();
+  applyLang();
+  addLog("ev_load", "ev_load_a");
+  addLog("ev_purge", "ev_purge_a");
+  if (window.top !== window.self) addLog("ev_frame", "ev_frame_a");
+  window.addEventListener("pagehide", vaporize);
+  window.addEventListener("beforeunload", vaporize);
+})();
+</script>
+</body>
+</html>

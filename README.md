@@ -35,3 +35,17 @@ Header `X-Widget-Channel: order-request`, body:
 { "channel": "order-request", "sku": "gateway-configuration-guide", "priceUsd": "19.00", "quantity": 1, "ts": 1791837562250 }
 ```
 SKUs: `commercial-data-assistant` ($9.00), `gateway-configuration-guide` ($19.00), `corporate-documentation-kit` ($29.00). The widget does not take payment; the endpoint must hand off to a payment processor.
+
+## Anti-Crawler Mini-Widget (`anti-crawler-widget.html`)
+Standalone sub-module, linked from the bottom of `widget.html`. The existing tabs and the $99 package are unchanged. Same statelessness rules: no storage or cookies, storage is purged on load, and `pagehide`/`beforeunload` drops the in-memory log and stops the clock.
+
+URL parameters:
+- `endpoint=<https URL>` – same as `widget.html`.
+- `lang=zh|en` – initial language (default follows `navigator.language`); the 中文/EN buttons switch it in place.
+- `expires=YYYY-MM-DD` – plan expiry (23:59:59 UTC). Drives the countdown. A reminder is shown once 5 days remain and replaced by a second reminder once 3 days remain; after expiry an "expired, re-purchase manually" notice is shown. There is no persistence, so the issuer must put the expiry in the URL.
+
+Order request (one-time, non-recurring):
+```json
+{ "channel": "order-request", "sku": "anti-crawler-mini-widget", "priceUsd": "9.90", "quantity": 1, "recurring": false, "lang": "en", "ts": 1791837562250 }
+```
+Block Details Tracking only lists events the page observes about itself (load, storage purge, being embedded, the order request). It does not scan or probe anything outside the page.
